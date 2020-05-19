@@ -27,6 +27,9 @@
     height: 10px;
     border-radius: 50%; 
 }
+.sbec-product-card{
+    overflow: hidden;
+}
 .sbec-product-card--border{
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -34,10 +37,12 @@
     padding: 5px
 }
 .sbec-product-card__image{
+    width: 100%;
+    height: 250px;
     overflow: hidden;
 }
 .sbec-product-card__image > img{
-    width: 300px;
+    width: 100%;
 }
 
 .sbec-background-product__ajusting-area{
@@ -65,18 +70,22 @@
     position: relative;
 }
 #y-range{
+    width: 0%;
     position: absolute;
     transform: rotate(90deg);
     top: 50%;
     left: -51%;
     z-index: 9;
+    transition: width 0.3s;
 }
 #z-range{
+    width: 0px;
     position: absolute;
     transform: rotate(90deg);
     top: 50%;
     right: 50%;
     z-index: 9;
+    transition: width 0.3s;
 }
 #r-range{
     position: absolute;

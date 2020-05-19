@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
-    <link rel="stylesheet" href="../css/swiper.css">
-    <link rel="stylesheet" href="../css/logo.css">
-    <link rel="stylesheet" href="../css/video_call_tab.css">
+    <link rel="stylesheet" href="css/swiper.css">
+    <link rel="stylesheet" href="css/logo.css">
+    <link rel="stylesheet" href="css/video_call_tab.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/8e2b436045.js" crossorigin="anonymous"></script>
+    <script src="js/bg_product.js"></script>
     <title>SBEC</title>
 </head>
 
@@ -127,8 +128,8 @@
                                         <div class="modal-body">
                                             <div class="input-group">
                                                 <div class="custom-file">
-                                                    <input type="file" class="custom-file-input">
-                                                    <label class="custom-file-label">Choose your background</label>
+                                                    <input type="file" class="custom-file-input" id="sbec-upload-background">
+                                                    <label class="custom-file-label" for="sbec-upload-background">Choose your background</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -137,7 +138,7 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-danger"
                                                 data-dismiss="modal">Close</button>
-                                            <button class="btn btn-success">Set background</button>
+                                            <button class="btn btn-success" id="apply-background">Apply background</button>
                                         </div>
 
                                     </div>
@@ -151,8 +152,8 @@
                                 <div class="sbec-background-product__result">
                                     <img class="sbec-background-product__background"
                                         src="images/products/backgrounds/home_background.jpg" alt="background">
-                                    <img class="sbec-background-product__product"
-                                        src="images/products/product.jpg" alt="product">
+                                    <img class="sbec-background-product__product" src="images/products/product.jpg"
+                                        alt="product">
                                 </div>
                             </div>
                         </div>
@@ -240,53 +241,10 @@
         </div>
     </div>
 
-    <script>
-        $(document).ready(function () {
-            let $xRangeBar = $('#x-range');
-            let $yRangeBar = $('#y-range');
-            let $zRangeBar = $('#z-range');
-            let $rRangeBar = $('#r-range');
-            let $productInSideBg = $('.sbec-background-product__product');
-            let $bg = $('.sbec-background-product__background');
-
-            initAjustingBar($bg.height());
-            console.log($bg.width());
-            $xRangeBar.on('input', function () {
-                $productInSideBg.css('left', $xRangeBar.val() + '%');
-                console.log($xRangeBar.val());
-            });
-            $yRangeBar.on('input', function(){
-                $productInSideBg.css('top', $yRangeBar.val() + '%');
-            });
-            $zRangeBar.on('input', function(){
-                $productInSideBg.css('transform', `translate(-50%,-50%) scale(${$zRangeBar.val()/50.0}) rotate(${$rRangeBar.val()*3.6}deg)`);
-            });
-            $rRangeBar.on('input', function(){
-                $productInSideBg.css('transform', `translate(-50%,-50%) scale(${$zRangeBar.val()/50.0}) rotate(${$rRangeBar.val()*3.6}deg)`);
-            });
-
-            // change image when click on product card
-            let $productCard = $('.sbec-product-card__image');
-
-            $productCard.parent().on('click',function(){
-                let $currentImg = $(this).children('.sbec-product-card__image').children('img');
-                $('.sbec-background-product__product').attr('src', $currentImg.attr('src'));
-                console.log($('.sbec-background-product__product').attr('src'));
-                console.log('src:' + $currentImg.attr('src'));
-            });
-        });
-        function initAjustingBar(bgHeight){
-            console.log(bgHeight);
-            $('#y-range').css('width', bgHeight + 'px');
-            $('#y-range').css('left', -bgHeight/2 - 10 + 'px');
-            $('#z-range').css('width', bgHeight + 'px');
-            $('#z-range').css('right', -bgHeight/2 - 10 + 'px');
-        }
-    </script>
     <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
     <script>
         var swiper = new Swiper('.swiper-container', {
-            slidesPerView: 4,
+            slidesPerView: 1,
             spaceBetween: 10,
             pagination: {
                 el: '.swiper-pagination',
@@ -295,6 +253,20 @@
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 40,
+                },
+                1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 50,
+                },
             },
         });
     </script>
