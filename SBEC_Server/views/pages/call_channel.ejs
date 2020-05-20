@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/logo.css">
-    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/logo.css">
+    <link rel="stylesheet" href="../css/admin.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/8e2b436045.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <!-- CDN for call channel -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/peerjs/1.2.0/peerjs.js"></script>
     <title>SBEC</title>
 </head>
 
@@ -60,16 +62,18 @@
             <div class="sbec-conversation__accept-reject justify-content-around mt-5">
                 <div class="sbec-conversation__accept 
                         sbec-conversation__accept--shade
-                        sbec-conversation__button--border bg-success">
-                    <img src="images/icons/phone.svg" alt="accept">
+                        sbec-conversation__button--border bg-success"
+                        id="btn-accept-call">
+                    <img src="../images/icons/phone.svg" alt="accept">
                 </div>
                 <div class="sbec-conversation__reject 
                         sbec-conversation__reject--shade
                         sbec-conversation__button--border bg-danger">
-                    <img src="images/icons/cancel.svg" alt="reject">
+                    <img src="../images/icons/cancel.svg" alt="reject">
                 </div>
             </div>
             <div class="sbec-conversation__calling mt-5">
+                <audio id="audio_admin" controls autoplay></audio>
                 <button class="btn btn-danger">Stop now</button>
             </div>
             <div class="sbec-conversation__customer-info mt-5">
@@ -110,8 +114,10 @@
             </div>
         </div>
     </div>
-    <script src="js/ad_ws_recommended_product.js"></script>
-    <script src="js/ad_accept_reject.js"></script>
+    <script src="../js/peerjs_ad.js"></script>
+    <script src="../js/ad_ws_recommended_product.js"></script>
+    <script src="../js/ad_start_call_with_client.js"></script>
+    <script src="../js/ad_accept_reject.js"></script>
     <script>
         $('.sbec-conversation__accept').on('click', function () {
             $(this).parent().slideToggle(500);

@@ -12,7 +12,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/8e2b436045.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>\
+    <!-- CDN for call channel -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/peerjs/1.2.0/peerjs.js"></script>
     <script src="js/bg_product.js"></script>
     <title>SBEC</title>
 </head>
@@ -107,7 +109,9 @@
                         <p>ID: 148214</p>
                     </div>
                     <div class="sbec-start-and-stop-conversation">
-                        <button class="btn btn-success">Start conversation</button>
+                        <audio id="audio_client" controls autoplay></audio>
+                        <br>
+                        <button class="btn btn-success" id="btn-call-to-admin">Start conversation</button>
                     </div>
                     <div class="sbec-background-product">
                         <div class="sbec-background-product__upload mt-4">
@@ -298,6 +302,9 @@
             });
         }
     </script>
+
+    <script src="../js/peerjs_cl.js"></script>
+    <script src="js/cl_start_call_to_admin.js"></script>
 </body>
 
 </html>
