@@ -12,7 +12,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/8e2b436045.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>\
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
     <!-- CDN for call channel -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/peerjs/1.2.0/peerjs.js"></script>
     <script src="js/bg_product.js"></script>
@@ -111,6 +111,8 @@
                     <div class="sbec-start-and-stop-conversation">
                         <audio id="audio_client" controls autoplay></audio>
                         <br>
+                        <p id="status-call-to-admin">Waiting for consultant...</p>
+                        <button class="btn btn-danger" id="btn-stop-call-to-admin">Stop conversation</button>
                         <button class="btn btn-success" id="btn-call-to-admin">Start conversation</button>
                     </div>
                     <div class="sbec-background-product">
@@ -187,28 +189,6 @@
                                 <div class="sbec-product-card sbec-product-card--border swiper-slide">
                                     <div class="sbec-product-card__image">
                                         <img src="images/products/pngwave.png" alt="product">
-                                    </div>
-                                    <p class="sbec-product-card__name">
-                                        Modern table
-                                    </p>
-                                    <p class="sbec-product-card__price">
-                                        1.500 $
-                                    </p>
-                                </div>
-                                <div class="sbec-product-card sbec-product-card--border swiper-slide">
-                                    <div class=" sbec-product-card__image">
-                                        <img src="images/products/product.jpg" alt="product">
-                                    </div>
-                                    <p class="sbec-product-card__name">
-                                        Modern table
-                                    </p>
-                                    <p class="sbec-product-card__price">
-                                        1.500 $
-                                    </p>
-                                </div>
-                                <div class="sbec-product-card sbec-product-card--border swiper-slide">
-                                    <div class=" sbec-product-card__image">
-                                        <img src="images/products/product.jpg" alt="product">
                                     </div>
                                     <p class="sbec-product-card__name">
                                         Modern table

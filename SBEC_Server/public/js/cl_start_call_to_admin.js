@@ -7,7 +7,9 @@ peer.on('open', function(){
 $('#btn-call-to-admin').on('click', function() {
   console.log('click');
   socket.emit('client-request-call-to-server');
-
+  $(this).fadeToggle();
+  $('#audio_client').fadeToggle();
+  $('#status-call-to-admin').fadeToggle();
 });
 
 socket.on('server-sent-accept-call-from-admin', function(adminId) {
@@ -23,7 +25,9 @@ socket.on('server-sent-accept-call-from-admin', function(adminId) {
     call.on('stream', function(remoteStream) {
       playStream('audio_client', remoteStream);
     })
-  })
+  });
+  $('#status-call-to-admin').text('Accepted. Start conversation now');
+  $('#btn-stop-call-to-admin').fadeToggle();
 });
 
 function playStream(audioId, stream) {
